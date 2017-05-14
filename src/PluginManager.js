@@ -60,7 +60,7 @@ module.exports = class PluginManager {
         for (const importController of this.importControllers) {
           if (importController.stylus === true && importController.supports(file.val)) {
             found = true;
-            Promise.resolve(importController.handler(file.val))
+            Promise.resolve(importController.handler('stylus', file.val))
               .then((str) => {
                 resolve(new stylus.nodes.String(str));
               })
