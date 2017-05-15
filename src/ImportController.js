@@ -79,7 +79,7 @@ module.exports = class ImportController {
           else cd = path.join(process.cwd(), rd);
           Promise.resolve(controller.handler('less', filename, cd))
             .then((p) => {
-              resolve(super.loadFile(p, rd, options, environment));
+              resolve(less.FileManager.prototype.loadFile.call(this, p, rd, options, environment));
             })
             .catch((err) => {
               reject(err);
