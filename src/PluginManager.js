@@ -1,3 +1,4 @@
+const path = require('path');
 const deasync = require('deasync-promise');
 const ImportController = require('./ImportController');
 const FunctionController = require('./FunctionController');
@@ -52,24 +53,34 @@ module.exports = class PluginManager {
         if (functionController.stylus === true) functionController.toStylus(stylus);
       }
 
-      stylus.define('import', file => deasync(new Promise((resolve, reject) => {
-        if (!(file instanceof stylus.nodes.String)) throw new Error(`expected type string, got type ${file.constructor.name}`);
+      stylus.define('import', function (file) {
+        return deasync(new Promise((resolve, reject) => {
+          if (!(file instanceof stylus.nodes.String)) throw new Error(`expected type string, got type ${file.constructor.name}`);
 
-        let found = false;
+          let found = false;
 
-        for (const importController of this.importControllers) {
-          if (importController.stylus === true && importController.supports(file.val)) {
-            found = true;
-            Promise.resolve(importController.handler('stylus', file.val))
-              .then((str) => {
-                resolve(new stylus.nodes.String(str));
-              })
-              .catch(reject);
+          for (const importController of self.importControllers) {
+            if (importController.stylus === true && importController.supports(file.val)) {
+              found = true;
+              let cd;
+              if (path.isAbsolute(this.renderer.nodes.filename)) {
+                if (this.renderer.nodes.filename.includes('node_modules/stylus/lib/functions/index.styl')) {
+                  cd = path.join(process.cwd(), this.filename);
+                } else {
+                  cd = this.renderer.nodes.filename;
+                }
+              } else cd = path.parse(path.join(process.cwd(), this.renderer.nodes.filename)).dir;
+              Promise.resolve(importController.handler('stylus', file.val, cd))
+                .then((str) => {
+                  resolve(new stylus.nodes.String(str));
+                })
+                .catch(reject);
+            }
           }
-        }
 
-        if (!found) resolve(file);
-      })));
+          if (!found) resolve(file);
+        }));
+      });
     };
   }
 

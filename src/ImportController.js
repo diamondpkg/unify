@@ -70,11 +70,14 @@ module.exports = class ImportController {
         return controller.supports(filename);
       }
 
-      loadFile(filename, cd, options, environment) {
+      loadFile(filename, rd, options, environment) {
         return new Promise((resolve, reject) => {
+          let cd;
+          if (path.isAbsolute(rd)) cd = rd;
+          else cd = path.join(process.cwd(), rd);
           Promise.resolve(controller.handler('less', filename, cd))
             .then((p) => {
-              resolve(super.loadFile(p, cd, options, environment));
+              resolve(super.loadFile(p, rd, options, environment));
             })
             .catch((err) => {
               reject(err);
