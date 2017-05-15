@@ -26,8 +26,8 @@ test('Sass UBool', async (t) => {
     sass.render({
       data: await fs.readFileAsync('test/sass/bool.scss', 'utf8'),
       outputStyle: 'expanded',
-      importer: plugin.toSass().importers,
-      functions: plugin.toSass().functions,
+      importer: plugin.sass.importers,
+      functions: plugin.sass.functions,
     }, async (err, result) => {
       if (err) throw err;
 
@@ -64,8 +64,8 @@ test('Sass UColor', async (t) => {
     sass.render({
       data: await fs.readFileAsync('test/sass/color.scss', 'utf8'),
       outputStyle: 'expanded',
-      importer: plugin.toSass().importers,
-      functions: plugin.toSass().functions,
+      importer: plugin.sass.importers,
+      functions: plugin.sass.functions,
     }, async (err, result) => {
       if (err) throw err;
 
@@ -102,8 +102,8 @@ test('Sass UNull', async (t) => {
     sass.render({
       data: await fs.readFileAsync('test/sass/null.scss', 'utf8'),
       outputStyle: 'expanded',
-      importer: plugin.toSass().importers,
-      functions: plugin.toSass().functions,
+      importer: plugin.sass.importers,
+      functions: plugin.sass.functions,
     }, async (err, result) => {
       if (err) throw err;
 
@@ -140,8 +140,8 @@ test('Sass UNumber', async (t) => {
     sass.render({
       data: await fs.readFileAsync('test/sass/number.scss', 'utf8'),
       outputStyle: 'expanded',
-      importer: plugin.toSass().importers,
-      functions: plugin.toSass().functions,
+      importer: plugin.sass.importers,
+      functions: plugin.sass.functions,
     }, async (err, result) => {
       if (err) throw err;
 
@@ -178,8 +178,8 @@ test('Sass UString', async (t) => {
     sass.render({
       data: await fs.readFileAsync('test/sass/string.scss', 'utf8'),
       outputStyle: 'expanded',
-      importer: plugin.toSass().importers,
-      functions: plugin.toSass().functions,
+      importer: plugin.sass.importers,
+      functions: plugin.sass.functions,
     }, async (err, result) => {
       if (err) throw err;
 

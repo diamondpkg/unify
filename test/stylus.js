@@ -19,7 +19,7 @@ test('Stylus UBool', async (t) => {
 
   await new Promise(async (resolve) => {
     stylus(await fs.readFileAsync('test/styl/bool.styl', 'utf8'))
-      .use(plugin.toStylus())
+      .use(plugin.stylus)
       .render(async (err, css) => {
         if (err) throw err;
 
@@ -47,7 +47,7 @@ test('Stylus UColor', async (t) => {
 
   await new Promise(async (resolve) => {
     stylus(await fs.readFileAsync('test/styl/color.styl', 'utf8'))
-      .use(plugin.toStylus())
+      .use(plugin.stylus)
       .render(async (err, css) => {
         if (err) throw err;
 
@@ -75,7 +75,7 @@ test('Stylus UNull', async (t) => {
 
   await new Promise(async (resolve) => {
     stylus(await fs.readFileAsync('test/styl/null.styl', 'utf8'))
-      .use(plugin.toStylus())
+      .use(plugin.stylus)
       .render(async (err, css) => {
         if (err) throw err;
 
@@ -103,7 +103,7 @@ test('Stylus UNumber', async (t) => {
 
   await new Promise(async (resolve) => {
     stylus(await fs.readFileAsync('test/styl/number.styl', 'utf8'))
-      .use(plugin.toStylus())
+      .use(plugin.stylus)
       .render(async (err, css) => {
         if (err) throw err;
 
@@ -131,7 +131,7 @@ test('Stylus UString', async (t) => {
 
   await new Promise(async (resolve) => {
     stylus(await fs.readFileAsync('test/styl/string.styl', 'utf8'))
-      .use(plugin.toStylus())
+      .use(plugin.stylus)
       .render(async (err, css) => {
         if (err) throw err;
 

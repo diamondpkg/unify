@@ -15,7 +15,7 @@ test('Less UBool', async (t) => {
 
   plugin.add(new Bool());
 
-  const output = await less.render(await fs.readFileAsync('test/less/bool.less', 'utf8'), { plugins: [plugin.toLess()] });
+  const output = await less.render(await fs.readFileAsync('test/less/bool.less', 'utf8'), { plugins: [plugin.less] });
 
   if (output.css !== await fs.readFileAsync('test/less/bool.css', 'utf8')) t.fail('Generated CSS does not match');
 
@@ -34,7 +34,7 @@ test('Less UColor', async (t) => {
 
   plugin.add(new Color());
 
-  const output = await less.render(await fs.readFileAsync('test/less/color.less', 'utf8'), { plugins: [plugin.toLess()] });
+  const output = await less.render(await fs.readFileAsync('test/less/color.less', 'utf8'), { plugins: [plugin.less] });
 
   if (output.css !== await fs.readFileAsync('test/less/color.css', 'utf8')) t.fail('Generated CSS does not match');
 
@@ -53,7 +53,7 @@ test('Less UNull', async (t) => {
 
   plugin.add(new Null());
 
-  const output = await less.render(await fs.readFileAsync('test/less/null.less', 'utf8'), { plugins: [plugin.toLess()] });
+  const output = await less.render(await fs.readFileAsync('test/less/null.less', 'utf8'), { plugins: [plugin.less] });
 
   if (output.css !== await fs.readFileAsync('test/less/null.css', 'utf8')) t.fail('Generated CSS does not match');
 
@@ -72,7 +72,7 @@ test('Less UNumber', async (t) => {
 
   plugin.add(new Num());
 
-  const output = await less.render(await fs.readFileAsync('test/less/number.less', 'utf8'), { plugins: [plugin.toLess()] });
+  const output = await less.render(await fs.readFileAsync('test/less/number.less', 'utf8'), { plugins: [plugin.less] });
 
   if (output.css !== await fs.readFileAsync('test/less/number.css', 'utf8')) t.fail('Generated CSS does not match');
 
@@ -91,7 +91,7 @@ test('Less UString', async (t) => {
 
   plugin.add(new Str());
 
-  const output = await less.render(await fs.readFileAsync('test/less/string.less', 'utf8'), { plugins: [plugin.toLess()] });
+  const output = await less.render(await fs.readFileAsync('test/less/string.less', 'utf8'), { plugins: [plugin.less] });
 
   if (output.css !== await fs.readFileAsync('test/less/string.css', 'utf8')) t.fail('Generated CSS does not match');
 
