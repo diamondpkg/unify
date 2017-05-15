@@ -84,6 +84,14 @@ module.exports = class ImportController {
             });
         });
       }
+
+      tryAppendExtension(p) {
+        return p;
+      }
+
+      tryAppendLessExtension(p) {
+        return p;
+      }
     };
   }
 };
