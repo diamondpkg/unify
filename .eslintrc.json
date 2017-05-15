@@ -9,6 +9,7 @@
         "prefer-rest-params": 0,
         "guard-for-in": 0,
         "no-continue": 0,
-        "func-names": 0
+        "func-names": 0,
+        "strict": 0
     }
 }

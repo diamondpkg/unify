@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * An argument. This class should not be extended.
  * @class Argument

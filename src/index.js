@@ -1,3 +1,5 @@
+'use strict';
+
 const types = require('./types');
 const PluginManager = require('./PluginManager');
 const ImportController = require('./ImportController');

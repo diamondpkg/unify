@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const deasync = require('deasync-promise');
 const ImportController = require('./ImportController');

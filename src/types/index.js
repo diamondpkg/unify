@@ -1,3 +1,5 @@
+'use strict';
+
 const sass = require('node-sass');
 const stylus = require('stylus');
 const UString = require('./UString');
