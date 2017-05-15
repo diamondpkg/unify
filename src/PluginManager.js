@@ -28,7 +28,7 @@ module.exports = class PluginManager {
     }
   }
 
-  toSass() {
+  get sass() {
     const importers = [];
     for (const importController of this.importControllers) {
       if (importController.sass === true) importers.push(importController.toSass());
@@ -45,7 +45,7 @@ module.exports = class PluginManager {
     };
   }
 
-  toStylus() {
+  get stylus() {
     const self = this;
 
     return (stylus) => {
@@ -84,7 +84,7 @@ module.exports = class PluginManager {
     };
   }
 
-  toLess() {
+  get less() {
     const self = this;
     return {
       install(less, lessPluginManager) {
